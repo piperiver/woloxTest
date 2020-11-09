@@ -1,0 +1,33 @@
+
+@import './styles/fonts.scss';
+
+body{
+  font-family: $primary-font;
+  font-size: $text-size-desktop;
+}
+
+.bgHome{
+  background-image: url('./assets/Backgrounds/Bg_Header@3x.png');
+  background-size: 100% 100%;
+  background-position: initial;
+}
+
+.color-green{
+  color: $color-green;
+}
+.color-blue{
+  color: $color-blue;
+}
+.bold{
+  font-weight: bold;
+}
+.extra-bold{
+  font-family: 'MontserratBold';
+}
+
+// STYLES FOR TABLETS
+@media (max-width: $max-width-tablet) {
+  body{
+    font-size: $text-size-tablet;
+  }
+}

@@ -1,0 +1,25 @@
+@import './../../styles/fonts.scss';
+
+#home{
+    display: flex;
+
+    .contentWelcome{
+        flex: 1;
+        font-size: 40px;
+        padding-left: 60px;
+        padding-top: 100px;
+    }
+
+    .contentComputer{
+        flex: 1;
+        text-align: center;
+        padding-right: 60px;
+
+        img{
+            max-width: 100%;
+            height: 400px;
+            background-color: #fff;
+            transform: scaleX(-1);
+        }
+    }
+}
