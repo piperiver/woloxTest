@@ -1,0 +1,26 @@
+@import './../../styles/fonts.scss';
+
+#thanks{
+    padding: 60px 15px 15px 15px;
+    text-align: center;
+    background-image: url('../../assets/Backgrounds/Bg_Footer@3x.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .iconWolox{
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    #thanks{
+        background-image: url('../../assets/Backgrounds/Bg_Footer@2x.png');
+    }
+}
+
+@media (max-width: 425px) {
+    #thanks{
+        background-image: url('../../assets/Backgrounds/Bg_Footer.png');
+    }
+}

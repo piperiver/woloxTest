@@ -1,22 +1,22 @@
-
 @import './styles/fonts.scss';
 
 body{
   font-family: $primary-font;
   font-size: $text-size-desktop;
 }
-
 .bgHome{
   background-image: url('./assets/Backgrounds/Bg_Header@3x.png');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: initial;
 }
-
 .color-green{
   color: $color-green;
 }
 .color-blue{
   color: $color-blue;
+}
+.color-white{
+  color: #fff;
 }
 .bold{
   font-weight: bold;
@@ -24,10 +24,56 @@ body{
 .extra-bold{
   font-family: 'MontserratBold';
 }
+.font-md{
+  font-size: 30px;
+}
+.font-lg{
+  font-size: 35px;
+}
+.bgHome{
+  padding: 60px 60px 0 60px;
+}
+.zoom{
+  transition: all 0.5s ease;
 
-// STYLES FOR TABLETS
-@media (max-width: $max-width-tablet) {
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+@media (max-width: 800px) {
+  .font-md{
+    font-size: 20px;
+  }
+  .font-lg{
+    font-size: 25px;
+  }
+}
+@media (max-width: 768px) {
   body{
     font-size: $text-size-tablet;
+  }
+  .bgHome{
+    background-image: url('./assets/Backgrounds/Bg_Header@2x.png');
+  }
+}
+@media (max-width: 600px) {
+  .bgHome{
+    padding: 30px 30px 0 30px;
+  }
+}
+@media (max-width: 425px) {
+  .bgHome{
+    background-image: url('./assets/Backgrounds/Bg_Header.png');
+  }
+}
+@media (max-width: 350px) {
+  .bgHome{
+    padding: 10px 10px 0 10px;
+  }
+  .font-md{
+    font-size: 20px;
+  }
+  .font-lg{
+    font-size: 25px;
   }
 }

@@ -6,10 +6,12 @@ const HomeSection = () => {
     
     return (
         <section id="home">
-            <div className='contentWelcome'>
-                Bienvenido a tu<br/>
-                <span className='bold'>Entrevista T&eacute;cnica</span> en<br/>
-                <span className='extra-bold color-green'>Wolox</span>
+            <div className='contentWelcome font-md'>
+                <div>
+                    Bienvenido a tu<br/>
+                    <span className='bold'>Entrevista T&eacute;cnica</span> en<br/>
+                    <span className='extra-bold color-green'>Wolox</span>
+                </div>
             </div>
             <div className='contentComputer'>
                 <img src={hero} className='logo'/>

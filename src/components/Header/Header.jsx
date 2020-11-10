@@ -10,13 +10,13 @@ const Header = () => {
     return (
         <div className='contentHeader'>
             <div className='contentLogo'>
-                <img src={logo} className='logo'/>
+                <img src={logo} className='logo zoom'/>
             </div>
             <div className='contentActions'>
                 <a href='#'>Inicio</a>
-                <a href='#'>Beneficios</a>
+                <a href='/#benefits'>Beneficios</a>
 
-                <Button name='Registro' className='btn-border light'/>
+                <Button name='Registro' className='light'/>
             </div>
         </div>
     )
