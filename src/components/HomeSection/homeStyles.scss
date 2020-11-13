@@ -1,19 +1,23 @@
 @import './../../styles/fonts.scss';
 
-#home{
+#home {
     display: flex;
-    margin-top: 20px;
+    // margin-top: 20px;
+    background-image: url('../../assets/Backgrounds/Bg_Header@3x.png');
+    background-size: cover;
+    background-position: initial;
+    padding: 112px 60px 0 60px;
 
-    .contentWelcome{
+    .contentWelcome {
         flex: 1;
         padding-top: 90px;
     }
 
-    .contentComputer{
+    .contentComputer {
         flex: 1;
         text-align: center;
 
-        img{
+        img {
             width: auto;
             height: auto;
             max-height: 400px;
@@ -24,19 +28,34 @@
     }
 }
 
-@media (max-width: 600px) {
-    #home{
-        display: block;
+@media (max-width: 768px) {
+    #home {
+        background-image: url('../../assets/Backgrounds/Bg_Header@2x.png');
+    }
+}
 
-        .contentWelcome{
+@media (max-width: 600px) {
+    #home {
+        display: block;
+        padding: 166px 30px 0 30px;
+
+        .contentWelcome {
             text-align: center;
+            padding-top: 40px;
         }
-        .contentComputer{
-            img{
+
+        .contentComputer {
+            img {
                 max-width: 280px;
                 margin-top: 20px;
                 width: 100%;
             }
         }
+    }
+}
+
+@media (max-width: 425px) {
+    #home {
+        background-image: url('../../assets/Backgrounds/Bg_Header.png');
     }
 }

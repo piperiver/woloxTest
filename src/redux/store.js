@@ -2,9 +2,13 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 
 import buttonReducer from './buttonDucks'
+import registerReducer from './registerDucks'
+import authReducer from './authDucks'
 
 const rootReducer = combineReducers({
-    header: buttonReducer
+    header: buttonReducer,
+    register: registerReducer,
+    auth: authReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

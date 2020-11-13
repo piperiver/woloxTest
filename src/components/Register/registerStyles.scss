@@ -1,0 +1,133 @@
+@import './../../styles/fonts.scss';
+
+
+#register {
+    background-image: url('../../assets/Backgrounds/Bg_Header@3x.png');
+    background-size: cover;
+    background-position: initial;
+    padding: 112px 60px 0 60px;
+
+    .contentForm{
+        margin: 50px auto;
+        max-width: 600px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+        background: #fff;
+        border-radius: 15px;
+
+        h1{
+            text-align: center;
+            padding-top: 30px;
+        }
+        form{
+            padding: 30px;
+            padding-top: 0;
+
+            .content-input{
+                padding: 15px 0;
+
+                label{
+                    display: block;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                label.inline{
+                    display: inline;
+                }
+                select{
+                    outline: none;
+                    width: 100%;
+                    border: 1px solid #f2f2f2;
+                    background: #f2f2f2;
+                    padding: 10px;
+
+                    &:focus{
+                        border: 1px solid $color-blue !important;
+                    }
+                }
+                input[type="checkbox"]{
+                    margin-right: 10px;
+                }
+                input{
+                    padding: 10px;
+                    border: 1px solid #f2f2f2;
+                    background: #f2f2f2;
+                    width: -webkit-fill-available;
+                    outline: none;
+                    transition: all 0.5s;
+
+                    &:focus{
+                        border: 1px solid $color-blue;
+                    }
+                }
+                span{
+                    color: #d05050;
+                    font-size: small;                
+                }
+            }
+            .btn-send{
+                width: 100%;
+                height: 36px;
+                margin-top: 30px;
+                background: #20adea;
+                border: 0;
+                color: #fff;
+                font-weight: 700;
+                font-size: 16px;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.3s;
+
+                &:hover{
+                    background: #0990c5;
+                    transform: scale(1.03);
+                }
+
+                &:disabled{
+                    background: #ccc;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #register {
+        background-image: url('../../assets/Backgrounds/Bg_Header@2x.png');
+    }
+}
+
+@media (max-width: 600px) {
+    #register {
+        padding: 166px 30px 0 30px;
+
+        .contentForm{
+            margin: 0;
+
+            h1{
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    #register {
+        background-image: url('../../assets/Backgrounds/Bg_Header.png');
+        padding-left: 0;
+        padding-right: 0;
+
+        .contentForm{
+            box-shadow: none;
+            margin: 0;
+
+            h1{
+                padding-top: 0;
+                margin: 0;
+            }
+            form{
+                padding: 15px;
+            }
+        }
+    }
+}

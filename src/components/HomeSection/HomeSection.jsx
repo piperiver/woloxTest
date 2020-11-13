@@ -1,11 +1,12 @@
 import React from 'react'
+import {Section} from 'react-scroll-section';
 import hero from './../../assets/Hero/Ic_ilustra_Hero@3x.png';
 import './homeStyles.scss';
 
 const HomeSection = () => {
     
     return (
-        <section id="home">
+        <Section id="home">
             <div className='contentWelcome font-md'>
                 <div>
                     Bienvenido a tu<br/>
@@ -16,7 +17,7 @@ const HomeSection = () => {
             <div className='contentComputer'>
                 <img src={hero} className='logo'/>
             </div>
-        </section>
+        </Section>
     )
 }
 

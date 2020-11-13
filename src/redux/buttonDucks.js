@@ -33,11 +33,17 @@ export default function reducer(state = initData, action){
 /**
  * ACTIONS
  */
-export const buttonSection = (section) => async (dispatch, getState) => {
+export const buttonSection = (params) => async (dispatch, getState) => {
     try {
         
+        if(typeof params.redirect != 'undefined' && params.redirect != ''){
+            window.location.href = params.redirect;
+        }
+        
+
+
         //const {next} = getState();
-        const data = getState();
+        // const data = getState();
         
 
         dispatch({

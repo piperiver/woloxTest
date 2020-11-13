@@ -4,11 +4,6 @@ body{
   font-family: $primary-font;
   font-size: $text-size-desktop;
 }
-.bgHome{
-  background-image: url('./assets/Backgrounds/Bg_Header@3x.png');
-  background-size: cover;
-  background-position: initial;
-}
 .color-green{
   color: $color-green;
 }
@@ -30,9 +25,6 @@ body{
 .font-lg{
   font-size: 35px;
 }
-.bgHome{
-  padding: 60px 60px 0 60px;
-}
 .zoom{
   transition: all 0.5s ease;
 
@@ -52,24 +44,8 @@ body{
   body{
     font-size: $text-size-tablet;
   }
-  .bgHome{
-    background-image: url('./assets/Backgrounds/Bg_Header@2x.png');
-  }
-}
-@media (max-width: 600px) {
-  .bgHome{
-    padding: 30px 30px 0 30px;
-  }
-}
-@media (max-width: 425px) {
-  .bgHome{
-    background-image: url('./assets/Backgrounds/Bg_Header.png');
-  }
 }
 @media (max-width: 350px) {
-  .bgHome{
-    padding: 10px 10px 0 10px;
-  }
   .font-md{
     font-size: 20px;
   }
