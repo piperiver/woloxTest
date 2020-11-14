@@ -1,27 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {getList, filter, setFavorites} from "./../../redux/listDucks"
+import {getList, filter, setFavorites, sortList} from "./../../redux/listDucks"
 import starInactive from './../../assets/star.svg'
 import starActive from './../../assets/star_active.svg'
+import sort_desc from './../../assets/sort_desc.svg'
+import sort_asc from './../../assets/sort_asc.svg'
 import "./listStyles.scss";
 
 const List = () => {
     const dispatch = useDispatch();
     const list = useSelector(store => store.list)
-    
 
     const [name, setName] = useState('');
     const [type, setType] = useState('');
-
-    useEffect(() => {
-        const favorites = localStorage.getItem('favorites');
-        if(favorites === null){
-            localStorage.setItem('favorites', JSON.stringify([]));
-        }else{
-            dispatch(setFavorites(JSON.parse(favorites)));
-        }
-        dispatch(getList());
-    }, []);
 
     const filterFor = (option, value) => {
         if(option == 'name'){
@@ -56,6 +47,28 @@ const List = () => {
         }
     }
 
+    const iconSort = () => {
+        if(list.sort == "DESC"){
+            return (<img src={sort_desc}/>)
+        }else{
+            return (<img src={sort_asc}/>)
+        }
+    }
+
+    const sort = () => {
+        dispatch(sortList());
+    }
+
+    useEffect(() => {
+        const favorites = localStorage.getItem('favorites');
+        if(favorites === null){
+            localStorage.setItem('favorites', JSON.stringify([]));
+        }else{
+            dispatch(setFavorites(JSON.parse(favorites)));
+        }
+        dispatch(getList());
+    }, []);
+
     return (
         <div id="list">
         <div className="contentList">
@@ -64,7 +77,7 @@ const List = () => {
             <div className="contentFilters">
                 <div className="filter">
                     <div className="content-input">
-                        <label>Filtrar por tegnología</label>
+                        <label>Filtrar por tecnología</label>
                         <input onChange={ (e) => filterFor('name', e.target.value) }/>
                     </div>
                 </div>
@@ -86,7 +99,10 @@ const List = () => {
                         <tr className='extra-bold'>
                             <th>Favoritos</th>
                             <th>Logo</th>
-                            <th>Tecnología</th>
+                            <th onClick={ (e) => sort() } className="sort">
+                                Tecnología
+                                {iconSort()}
+                            </th>
                             <th>Año</th>
                             <th>Autor</th>
                             <th>Licencia</th>

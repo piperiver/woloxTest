@@ -10,14 +10,8 @@ import './headerStyles.scss';
 
 const Header = () => {
     const location = useLocation();
-    const store = useSelector(store => store)
-    const auth = store.auth;
-
-    const favorites = localStorage.getItem('favorites');
-    let totalFavorites = 0;
-    if(favorites !== null){
-        totalFavorites = JSON.parse(favorites).length;
-    }
+    const auth = useSelector(store => store.auth);
+    const fav = useSelector(store => store.list);
     
     const [isSticky, setSticky] = useState(false);
     const homeSection = useScrollSection('home');
@@ -35,10 +29,11 @@ const Header = () => {
         };
     }, []);
 
-    let bulletFav = '';
-    if(totalFavorites > 0){
-        bulletFav = (<span className="bulletFav">{totalFavorites}</span>);
-    }
+
+    const favorites = localStorage.getItem('favorites');
+    const totalFavorites = JSON.parse(favorites).length ?? 0;
+    const bulletFav = (totalFavorites > 0)? (<span className="bulletFav">{totalFavorites}</span>) : '';
+    
 
     return (
         <div className={(isSticky)? 'contentHeader sticky' : 'contentHeader'}>

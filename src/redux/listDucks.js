@@ -6,7 +6,8 @@ import {GetList} from '../api/list'
 const initData = {
     initList: [],
     filterList: [],
-    favorites: []
+    favorites: [],
+    sort: 'ASC'
 };
 
 
@@ -16,6 +17,7 @@ const initData = {
 const SET_LIST = 'SET_LIST'
 const SET_FILTER = 'SET_FILTER'
 const SET_FAVORITES = 'SET_FAVORITES'
+const SET_SORT = 'SET_SORT'
 
 
 /**
@@ -42,6 +44,12 @@ export default function reducer(state = initData, action){
                     ...state, 
                     favorites: action.favorites
             }
+        case SET_SORT:
+            return {
+                    ...state, 
+                    filterList: action.listSort,
+                    sort: action.sort
+            }
                 
         default:
             return state
@@ -61,9 +69,11 @@ export const setFavorites = (favorites) => async (dispatch, getState) => {
 
 export const getList = () => async (dispatch, getState) => {
     const list = await GetList();
+    const listSort = sortArray(list, 'tech', "ASC");
+
     dispatch({
         type: SET_LIST,
-        list: list
+        list: listSort
     })
 }
 
@@ -80,9 +90,42 @@ export const filter = (name, type) => async (dispatch, getState) => {
             item.tech.toLowerCase().indexOf(name.toLowerCase()) > -1
         );
     }
+
+    const listSort = sortArray(list, 'tech', state.list.sort);
     
     dispatch({
         type: SET_FILTER,
-        filter: list
+        filter: listSort
+    })
+}
+
+const sortArray = (array, item, sort = "ASC") => {
+    array.sort(function(a, b) {
+        var nameA = a[item].toUpperCase();
+        var nameB = b[item].toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
+
+    if(sort === "DESC"){
+        return array.reverse();
+    }
+    return array;
+}
+
+export const sortList = () => async (dispatch, getState) => {
+    const state = getState();
+    const sort = (state.list.sort === "DESC")? "ASC" : "DESC";
+    const listSort = sortArray(state.list.filterList, 'tech', sort);
+
+    dispatch({
+        type: SET_SORT,
+        listSort: listSort,
+        sort: sort
     })
 }

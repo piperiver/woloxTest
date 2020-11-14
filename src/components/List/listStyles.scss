@@ -74,6 +74,16 @@
                     background: $color-blue;
                     color: #fff;
                     font-weight: bold;
+
+                    .sort{
+                        display: flex;
+                        cursor: pointer;
+                        
+                        img{
+                            width: 20px;
+                            margin-left: 5px;
+                        }
+                    }
                 }
                 td,th{
                     padding: 10px;
@@ -125,6 +135,18 @@
 
         .contentList{
             margin: 0;
+
+            .contentFilters{
+                display: block;
+
+                .filter{
+                    padding: 10px;
+
+                    .content-input{
+                        padding: 0;
+                    }
+                }
+            }
         }
         h1{
             padding: 0;
