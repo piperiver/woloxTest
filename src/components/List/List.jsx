@@ -8,6 +8,11 @@ import sort_asc from './../../assets/sort_asc.svg'
 import "./listStyles.scss";
 
 const List = () => {
+    const token = localStorage.getItem('token');
+    if(token === null){
+      window.location.href = "/";
+    }
+    
     const dispatch = useDispatch();
     const list = useSelector(store => store.list)
 

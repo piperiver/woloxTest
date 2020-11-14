@@ -7,6 +7,11 @@ import { registerUser,  getProvinces} from "../../redux/registerDucks";
 import "./registerStyles.scss";
 
 const Register = () => {
+  // const token = localStorage.getItem('token');
+  // if(token !== null){
+  //   window.location.href = "/";
+  // }
+
   const dispatch = useDispatch();
   const countryInfo = useSelector(store => store.register.countryInfo)
 
