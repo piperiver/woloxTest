@@ -6,12 +6,12 @@ import Register from './../Register/Register';
 import Landing from './../Landing/Landing';
 import {setAutentication} from '../../redux/authDucks';
 import TermsAndConditions from './../Terms/Terms';
+import List from './../List/List';
 import {ScrollingProvider} from 'react-scroll-section';
 
 function Routing() {
     const dispatch = useDispatch();
     const infoStore = useSelector(store => store.auth)
-    console.log(infoStore);
 
 	useEffect(() => {
         dispatch(setAutentication());
@@ -24,6 +24,7 @@ function Routing() {
           <Route exact path='/' component={Landing} />
           <Route path='/Register' component={Register} />
           <Route path='/TermsAndConditions' component={TermsAndConditions} />
+          <Route path='/List' component={List} />
         </ScrollingProvider>
       </BrowserRouter>
   );

@@ -10,7 +10,7 @@ const BenefitsSection = () => {
             <h2>Entre los beneficios que ofrecemos se encuentran <span className='color-blue'>;)</span></h2>
             <div className='contentBenefits'>
                 {BENEFITS.map((benefit, index) =>
-                    <div key={index} className="benefitItem">
+                    <div key={benefit.img} className="benefitItem">
                         <img src={benefit.img} className="benefitImage zoom" />
                         <div className="benefitText">{benefit.text}</div>
                     </div>

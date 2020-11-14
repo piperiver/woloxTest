@@ -1,0 +1,146 @@
+@import './../../styles/fonts.scss';
+
+
+#list {
+    background-image: url('../../assets/Backgrounds/Bg_Header@3x.png');
+    background-size: cover;
+    background-position: initial;
+    padding: 112px 60px 0 60px;
+
+    .contentList{
+        margin: 50px auto;
+        max-width: 1200px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+        background: #fff;
+        border-radius: 15px;
+        padding: 15px;
+
+        h1{
+            text-align: center;
+            padding-top: 30px;
+        }
+        .contentFilters{
+            display: flex;
+
+            .filter{
+                flex: 1;
+                padding: 30px;
+            }
+            .content-input{
+                padding: 15px 0;
+
+                label{
+                    display: block;
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                input{
+                    padding: 10px;
+                    border: 1px solid #f2f2f2;
+                    background: #f2f2f2;
+                    width: -webkit-fill-available;
+                    outline: none;
+                    transition: all 0.5s;
+
+                    &:focus{
+                        border: 1px solid $color-blue;
+                    }
+                }
+                select{
+                    outline: none;
+                    width: 100%;
+                    border: 1px solid #f2f2f2;
+                    background: #f2f2f2;
+                    padding: 10px;
+
+                    &:focus{
+                        border: 1px solid $color-blue !important;
+                    }
+                }
+            }
+        }
+        .contentTable{
+            overflow-y: auto;
+
+            table{
+                width: 100%;
+                text-align: center;
+                border-spacing: 0;
+                border: 1px solid $color-blue;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+                thead{
+                    background: $color-blue;
+                    color: #fff;
+                    font-weight: bold;
+                }
+                td,th{
+                    padding: 10px;
+                }
+                tbody{
+                    img{
+                        height: 100%;
+                        max-height: 50px;
+                    }
+                    tr{
+                        &:hover{
+                            background: #f2f2f2;
+                        }
+                        &:last-child{
+                            td{
+                                &:last-child{
+                                    border-bottom-right-radius: 15px;
+                                }
+                                &:first-child{
+                                    border-bottom-left-radius: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .content-total{
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    }
+    .favorite{
+        width: 40px;
+        height: 40px !important;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 768px) {
+    #list {
+        background-image: url('../../assets/Backgrounds/Bg_Header@2x.png');
+    }
+}
+
+@media (max-width: 600px) {
+    #list {
+        padding: 166px 30px 0 30px;
+
+        .contentList{
+            margin: 0;
+        }
+        h1{
+            padding: 0;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    #list {
+        background-image: url('../../assets/Backgrounds/Bg_Header.png');
+        padding-left: 0;
+        padding-right: 0;
+
+        .contentList{
+            box-shadow: none;
+            margin: 0;
+        }
+    }
+}

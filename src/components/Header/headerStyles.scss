@@ -52,6 +52,14 @@
             margin-right: 0;
         }
 
+        .bulletFav{
+            font-weight: bold;
+            background-image: url('../../assets/star_active.svg');
+            font-size: 13px;
+            background-repeat: no-repeat;
+            padding: 16px 18px;
+            background-size: contain;
+        }
     }
 }
 

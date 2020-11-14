@@ -4,16 +4,24 @@ import { useLocation } from 'react-router';
 import Button from '../Button/Button'
 import {useScrollSection} from 'react-scroll-section';
 import logo from './../../assets/logo_full_color.svg';
+import starActive from './../../assets/star_active.svg'
 import './headerStyles.scss';
 
 
 const Header = () => {
     const location = useLocation();
+    const store = useSelector(store => store)
+    const auth = store.auth;
 
-    const infoStore = useSelector(store => store.auth)
-    console.log(infoStore);
-
+    const favorites = localStorage.getItem('favorites');
+    let totalFavorites = 0;
+    if(favorites !== null){
+        totalFavorites = JSON.parse(favorites).length;
+    }
+    
     const [isSticky, setSticky] = useState(false);
+    const homeSection = useScrollSection('home');
+    const BenefitSection = useScrollSection('benefits');
 
     const handleScroll = () => {
         const sticky = (window.scrollY > 0);
@@ -27,29 +35,38 @@ const Header = () => {
         };
     }, []);
 
-    const homeSection = useScrollSection('home');
-    const BenefitSection = useScrollSection('benefits');
+    let bulletFav = '';
+    if(totalFavorites > 0){
+        bulletFav = (<span className="bulletFav">{totalFavorites}</span>);
+    }
 
     return (
         <div className={(isSticky)? 'contentHeader sticky' : 'contentHeader'}>
             <div className='contentLogo'>
                 <img src={logo} className='logo zoom'/>
             </div>
-            <div className='contentActions'>
-                {location.pathname == '/' &&
+            
+            {location.pathname == '/' &&
+                <div className='contentActions'>
                     <a onClick={homeSection.onClick} selected={homeSection.selected}>Inicio</a>
-                }
-                {location.pathname == '/' &&
                     <a onClick={BenefitSection.onClick} selected={BenefitSection.selected}>Beneficios</a>
-                }
-                {location.pathname == '/' &&
-                    <Button name='Registro' redirect='/Register' className='light'/>
-                }
-                {location.pathname !== '/' &&
-                    <Button name='Volver al inicio' redirect='/' className='light'/>
-                }
+                    {bulletFav}
+                    {auth.login === false &&
+                        <Button name='Registro' redirect='/Register' className='light'/>
+                    }
+                    {auth.login &&
+                        <Button name='Listado' redirect='/List' className='light'/>
+                    }
 
-            </div>
+                </div>
+            }
+            
+            {location.pathname !== '/' &&
+                <div className='contentActions'>
+                    {bulletFav}
+                    <Button name='Volver al inicio' redirect='/' className='light'/>
+                </div>
+            }
         </div>
     )
 }

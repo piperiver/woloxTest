@@ -113,6 +113,7 @@ const Register = () => {
             <label>Contraseña</label>
             <input
               name="password"
+              type="password"
               ref={register({
                 required: true,
                 pattern: {
@@ -131,6 +132,7 @@ const Register = () => {
             <label>Confirmar contraseña</label>
             <input
               name="password_repeat"
+              type="password"
               ref={register({
                 required: true,
                 validate: (value) => value === watch("password"),

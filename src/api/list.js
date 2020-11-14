@@ -4,13 +4,12 @@ const headers = new Headers({
 	'Content-Type': 'application/json',
 });
 
-export const Register = async (userInfo) => {
+export const GetList = async () => {
 	try {
         
-		const response = await fetch(`${API_BACKEND}/signup`, {
-			method: 'POST',
-			headers,
-			body: JSON.stringify(userInfo),
+		const response = await fetch(`${API_BACKEND}/techs`, {
+			method: 'GET',
+			headers
         });
 
         return await response.json();
