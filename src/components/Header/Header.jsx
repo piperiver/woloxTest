@@ -22,6 +22,10 @@ const Header = () => {
         setSticky(sticky);
     };
 
+    const logout = () => {
+
+    }
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -34,6 +38,7 @@ const Header = () => {
     const totalFavorites = JSON.parse(favorites).length ?? 0;
     const bulletFav = (totalFavorites > 0)? (<span className="bulletFav">{totalFavorites}</span>) : '';
     
+    const logoutOption = (auth.login)? (<a onClick={logout}>Salir</a>) : '';
 
     return (
         <div className={(isSticky)? 'contentHeader sticky' : 'contentHeader'}>
@@ -45,6 +50,7 @@ const Header = () => {
                 <div className='contentActions'>
                     <a onClick={homeSection.onClick} selected={homeSection.selected}>Inicio</a>
                     <a onClick={BenefitSection.onClick} selected={BenefitSection.selected}>Beneficios</a>
+                    {logoutOption}
                     {bulletFav}
                     {auth.login === false &&
                         <Button name='Registro' redirect='/Register' className='light'/>
