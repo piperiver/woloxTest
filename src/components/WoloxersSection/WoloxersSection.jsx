@@ -9,7 +9,7 @@ const WoloxersSection = () => {
         <section id="woloxers">
             <div className='woloxersPeoples'>
                 <div className='content-text-woloxers'>
-                    <div className='text-woloxers'>
+                    <div className='text-woloxers fade-in-hello'>
                         <div>
                             <span className='extra-bold color-green font-lg'>350 + </span>
                             <span className='extra-bold color-blue font-lg'>Woloxers</span>
@@ -22,7 +22,7 @@ const WoloxersSection = () => {
                     </div>
                 </div>
             </div>
-            <div className='contentIdeas bold'>
+            <div className='contentIdeas bold fade-in-hello'>
                 <div className='font-md'>
                     Trabajamos para<br/>
                     <span className='extra-bold color-blue'>convertir </span>

@@ -8,14 +8,14 @@ const HomeSection = () => {
     return (
         <Section id="home">
             <div className='contentWelcome font-md'>
-                <div>
+                <div className='fade-in-hello'>
                     Bienvenido a tu<br/>
                     <span className='bold'>Entrevista T&eacute;cnica</span> en<br/>
                     <span className='extra-bold color-green'>Wolox</span>
                 </div>
             </div>
             <div className='contentComputer'>
-                <img src={hero} className='logo'/>
+                <img src={hero} className='logo fade-in-hello'/>
             </div>
         </Section>
     )
