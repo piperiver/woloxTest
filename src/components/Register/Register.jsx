@@ -4,16 +4,17 @@ import { useForm } from 'react-hook-form'
 import {
   MAX_LENGTH_INPUT,
   COUNTRIES,
-  COUNTRY_INIT
+  PROVINCES
 } from '../../utils/constants'
-import { registerUser, getProvinces } from '../../redux/registerDucks'
+import { registerUser, setCountrySelected } from '../../redux/registerDucks'
 import './registerStyles.scss'
 
 const Register = () => {
   const dispatch = useDispatch()
-  const countryInfo = useSelector((store) => store.register.countryInfo)
+  const countrySelect = useSelector((store) => store.register.countrySelected)
+  const provinces = (typeof PROVINCES[countrySelect] !== 'undefined') ? PROVINCES[countrySelect].provinces : []
 
-  const { register, handleSubmit, watch, errors, formState } = useForm({
+  const { register, handleSubmit, watch, setValue, errors, formState } = useForm({
     mode: 'all'
   })
 
@@ -43,7 +44,10 @@ const Register = () => {
     }
   }
 
-  const getProvince = () => dispatch(getProvinces(watch('country')))
+  const getProvince = () => {
+    setValue('province', '', true)
+    dispatch(setCountrySelected(watch('country')))
+  }
 
   return (
     <div id="register">
@@ -74,10 +78,10 @@ const Register = () => {
               name="country"
               ref={register({ required: true })}
               onChange={getProvince}
-              defaultValue={COUNTRY_INIT}
             >
-              {COUNTRIES.map((country, index) => (
-                <option key={index} value={country.id}>
+              <option value=""></option>
+              {COUNTRIES.map((country) => (
+                <option key={country.id} value={country.id}>
                   {country.country}
                 </option>
               ))}
@@ -88,7 +92,8 @@ const Register = () => {
           <div className="content-input">
             <label>Provincia</label>
             <select name="province" ref={register({ required: true })}>
-              {countryInfo.provinces.map((province, index) => (
+              <option value=""></option>
+              {provinces.map((province, index) => (
                 <option key={index} value={province.id}>
                   {province.province}
                 </option>

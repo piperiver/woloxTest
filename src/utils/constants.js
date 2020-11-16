@@ -9,7 +9,6 @@ export const MAX_LENGTH_INPUT = 30
 export const API_BACKEND =
   'https://private-8e8921-woloxfrontendinverview.apiary-mock.com/'
 
-export const COUNTRY_INIT = 'co'
 export const COUNTRIES = [
   {
     id: 'ar',

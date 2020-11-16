@@ -1,5 +1,4 @@
 import { Register } from '../api/register'
-import { PROVINCES, COUNTRY_INIT } from '../utils/constants'
 
 /**
  * CONSTANTS
@@ -16,13 +15,13 @@ const initData = {
     terms: false,
     token: ''
   },
-  countryInfo: PROVINCES[COUNTRY_INIT]
+  countrySelected: ''
 }
 
 /**
  * TYPES
  */
-const CHANGE_PROVINCES = 'CHANGE_PROVINCES'
+const COUNTRY_SELECTED = 'COUNTRY_SELECTED'
 const REGISTER_USER = 'REGISTER_USER'
 
 /**
@@ -32,8 +31,8 @@ const REGISTER_USER = 'REGISTER_USER'
  */
 export default function reducer (state = initData, action = []) {
   switch (action.type) {
-    case CHANGE_PROVINCES:
-      return { ...state, countryInfo: action.provinces }
+    case COUNTRY_SELECTED:
+      return { ...state, countrySelected: action.countrySelected }
 
     case REGISTER_USER:
       return { ...state, userInfo: action.userInfo }
@@ -67,10 +66,9 @@ export const registerUser = (userInfo) => async (dispatch, getState) => {
   }
 }
 
-export const getProvinces = (country) => async (dispatch, getState) => {
-  const provinces = PROVINCES[country]
+export const setCountrySelected = (country) => async (dispatch, getState) => {
   dispatch({
-    type: CHANGE_PROVINCES,
-    provinces: provinces
+    type: COUNTRY_SELECTED,
+    countrySelected: country
   })
 }

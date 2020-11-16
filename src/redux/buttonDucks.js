@@ -26,6 +26,10 @@ export default function reducer (state = initData, action = []) {
  */
 export const buttonSection = (params) => async (dispatch, getState) => {
   try {
+    if (params.close) {
+      window.open('', '_parent', '')
+      window.close()
+    }
     if (typeof params.redirect !== 'undefined' && params.redirect !== '') {
       if (typeof params.blank !== 'undefined' && params.blank === true) {
         window.open(params.redirect, '_blank')

@@ -38,7 +38,7 @@ const Header = () => {
   const totalFavorites =
     favorites === null ? 0 : JSON.parse(favorites).length ?? 0
   const bulletFav =
-    (totalFavorites > 0) ? (<span className="bulletFav">{totalFavorites}</span>) : ('')
+    totalFavorites > 0 ? (<span className="bulletFav">{totalFavorites}</span>) : ('')
 
   const logoutOption = auth.login ? <a onClick={logout}>Salir</a> : ''
 
@@ -60,7 +60,6 @@ const Header = () => {
             Beneficios
           </a>
           {logoutOption}
-          {bulletFav}
           {auth.login === false && (
             <Button name="Registro" redirect="/Register" className="light" />
           )}
@@ -74,7 +73,12 @@ const Header = () => {
         <div className="contentActions">
           {logoutOption}
           {bulletFav}
-          <Button name="Volver al inicio" redirect="/" className="light" />
+          <Button
+            name={location.pathname === '/TermsAndConditions' ? 'Volver al registro' : 'Volver al inicio'}
+            redirect="/"
+            className="light"
+            close={location.pathname === '/TermsAndConditions'}
+          />
         </div>
       )}
     </div>

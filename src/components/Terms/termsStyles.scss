@@ -36,12 +36,11 @@
 @media (max-width: 425px) {
     #terms {
         background-image: url('../../assets/Backgrounds/Bg_Header.png');
-        padding-left: 0;
-        padding-right: 0;
 
         .contentTerms{
             box-shadow: none;
             margin: 0;
+            text-align: justify;
         }
     }
 }
