@@ -23,7 +23,10 @@ const Header = () => {
     };
 
     const logout = () => {
-
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        localStorage.removeItem("favorites");
+        window.location.href = "/";
     }
 
     useEffect(() => {
@@ -35,7 +38,7 @@ const Header = () => {
 
 
     const favorites = localStorage.getItem('favorites');
-    const totalFavorites = JSON.parse(favorites).length ?? 0;
+    const totalFavorites = (favorites === null)? 0 : (JSON.parse(favorites).length ?? 0);
     const bulletFav = (totalFavorites > 0)? (<span className="bulletFav">{totalFavorites}</span>) : '';
     
     const logoutOption = (auth.login)? (<a onClick={logout}>Salir</a>) : '';
@@ -64,6 +67,7 @@ const Header = () => {
             
             {location.pathname !== '/' &&
                 <div className='contentActions'>
+                    {logoutOption}
                     {bulletFav}
                     <Button name='Volver al inicio' redirect='/' className='light'/>
                 </div>

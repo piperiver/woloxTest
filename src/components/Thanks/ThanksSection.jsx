@@ -9,7 +9,7 @@ const ThanksSection = () => {
         <section id="thanks">
             <h2 className="thanks extra-bold font-lg">Gracias por <span className="color-blue">completar el ejercicio</span></h2>
             <h2 className="font-md">Te invitamos a ver más información</h2>
-            <Button name='Conocer más' className='dark'/>
+            <Button name='Conocer más' className='dark' blank={true} redirect='https://www.wolox.com.ar/'/>
             <div>
                 <img src={woloxIcon} className="iconWolox zoom" />
             </div>

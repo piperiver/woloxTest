@@ -37,7 +37,11 @@ export const buttonSection = (params) => async (dispatch, getState) => {
     try {
         
         if(typeof params.redirect != 'undefined' && params.redirect != ''){
-            window.location.href = params.redirect;
+            if(typeof params.blank != 'undefined' && params.blank === true){
+                window.open(params.redirect, '_blank');
+            }else{
+                window.location.href = params.redirect;
+            }
         }
         
 

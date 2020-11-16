@@ -22,6 +22,7 @@ const Register = () => {
   const onSubmit = (data) => {
     delete data.password_repeat;
     dispatch(registerUser(data));
+    window.location.href = "/List";
   };
 
   const getMessage = (object) => {

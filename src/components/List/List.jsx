@@ -75,7 +75,7 @@ const List = () => {
     }, []);
 
     return (
-        <div id="list">
+        <div id="list" data-testid='email'>
         <div className="contentList">
             <h1>LISTA DE TECNOLOGÍAS</h1>
 

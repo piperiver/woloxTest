@@ -14,10 +14,10 @@ const initData = {
 /**
  * TYPES
  */
-const SET_LIST = 'SET_LIST'
-const SET_FILTER = 'SET_FILTER'
-const SET_FAVORITES = 'SET_FAVORITES'
-const SET_SORT = 'SET_SORT'
+export const SET_LIST = 'SET_LIST'
+export const SET_FILTER = 'SET_FILTER'
+export const SET_FAVORITES = 'SET_FAVORITES'
+export const SET_SORT = 'SET_SORT'
 
 
 /**
@@ -60,7 +60,7 @@ export default function reducer(state = initData, action){
 /**
  * ACTIONS
  */
-export const setFavorites = (favorites) => async (dispatch, getState) => {
+export const setFavorites = (favorites) => (dispatch, getState) => {
     dispatch({
         type: SET_FAVORITES,
         favorites: favorites

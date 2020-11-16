@@ -18,7 +18,7 @@ const WoloxersSection = () => {
                             <img src={twitter} className='twitter'/>
                             @Wolox
                         </div>
-                        <Button name='Siguenos' className='transparent'/>
+                        <Button name='Siguenos' className='transparent' blank={true} redirect='https://twitter.com/wolox'/>
                     </div>
                 </div>
             </div>
