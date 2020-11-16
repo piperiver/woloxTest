@@ -37,8 +37,7 @@ const Header = () => {
   const favorites = localStorage.getItem('favorites')
   const totalFavorites =
     favorites === null ? 0 : JSON.parse(favorites).length ?? 0
-  const bulletFav =
-    totalFavorites > 0 ? (<span className="bulletFav">{totalFavorites}</span>) : ('')
+  const bulletFav = totalFavorites > 0 ? (<span className="bulletFav">{totalFavorites}</span>) : ('')
 
   const logoutOption = auth.login ? <a onClick={logout}>Salir</a> : ''
 
@@ -50,12 +49,23 @@ const Header = () => {
 
       {location.pathname === '/' && (
         <div className="contentActions">
-          <a onClick={homeSection.onClick} selected={homeSection.selected}>
+          <a
+            selected={homeSection.selected}
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              homeSection.onClick()
+            }}
+          >
             Inicio
           </a>
           <a
-            onClick={BenefitSection.onClick}
             selected={BenefitSection.selected}
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              BenefitSection.onClick()
+            }}
           >
             Beneficios
           </a>
@@ -74,7 +84,11 @@ const Header = () => {
           {logoutOption}
           {bulletFav}
           <Button
-            name={location.pathname === '/TermsAndConditions' ? 'Volver al registro' : 'Volver al inicio'}
+            name={
+              location.pathname === '/TermsAndConditions'
+                ? 'Volver al registro'
+                : 'Volver al inicio'
+            }
             redirect="/"
             className="light"
             close={location.pathname === '/TermsAndConditions'}

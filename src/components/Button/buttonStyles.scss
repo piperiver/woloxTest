@@ -45,3 +45,9 @@ button{
     border: 2px solid $color-blue;
     max-width: 200px;
 }
+
+@media (max-width: 600px) {
+    button{
+        width: auto;
+    }
+}
