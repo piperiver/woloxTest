@@ -137,7 +137,7 @@ const Register = () => {
                 required: true,
                 pattern: {
                   value: /^[a-zA-Z0-9]+$/,
-                  message: 'La contraseña debe tener números y letras'
+                  message: 'La contraseña debe tener números o letras'
                 },
                 minLength: {
                   value: 6
