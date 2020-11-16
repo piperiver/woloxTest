@@ -1,6 +1,6 @@
 import React from "react";
 import { getList, filter, setFavorites, sortList } from "../redux/listDucks";
-import { render, RenderResult, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import List from "../components/List/List";
 import { listTest } from "../__mocks__/data";
 import reducer, {

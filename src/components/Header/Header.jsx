@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocation } from 'react-router';
 import Button from '../Button/Button'
 import {useScrollSection} from 'react-scroll-section';
 import logo from './../../assets/logo_full_color.svg';
-import starActive from './../../assets/star_active.svg'
 import './headerStyles.scss';
 
 
