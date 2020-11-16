@@ -1,30 +1,29 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import { setAutentication } from "../../redux/authDucks";
-import { ScrollingProvider } from "react-scroll-section";
-import Loading from "./../Loading/Loading";
-const Header = React.lazy(() => import('./../Header/Header'));
-const Landing = React.lazy(() => import('./../Landing/Landing'));
-const Register = React.lazy(() => import('./../Register/Register'));
-const TermsAndConditions = React.lazy(() => import('./../Terms/Terms'));
-const List = React.lazy(() => import('./../List/List'));
+import React, { useEffect, Suspense } from 'react'
+import { useDispatch } from 'react-redux'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { setAutentication } from '../../redux/authDucks'
+import { ScrollingProvider } from 'react-scroll-section'
+import Loading from './../Loading/Loading'
+const Header = React.lazy(() => import('./../Header/Header'))
+const Landing = React.lazy(() => import('./../Landing/Landing'))
+const Register = React.lazy(() => import('./../Register/Register'))
+const TermsAndConditions = React.lazy(() => import('./../Terms/Terms'))
+const List = React.lazy(() => import('./../List/List'))
 
-function Routing() {
-  const dispatch = useDispatch();
-  const infoStore = useSelector((store) => store.auth);
+function Routing () {
+  const dispatch = useDispatch()
 
-  const token = localStorage.getItem("token");
-  const login = token !== null;
+  const token = localStorage.getItem('token')
+  const login = token !== null
 
   useEffect(() => {
-    dispatch(setAutentication());
-  }, [dispatch]);
+    dispatch(setAutentication())
+  }, [dispatch])
 
   return (
     <BrowserRouter>
       <ScrollingProvider>
-        <Suspense fallback={(<Loading/>)}>
+        <Suspense fallback={<Loading />}>
           <Header />
           <Switch>
             <Route exact path="/" component={Landing} />
@@ -46,7 +45,7 @@ function Routing() {
         </Suspense>
       </ScrollingProvider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default Routing;
+export default Routing
