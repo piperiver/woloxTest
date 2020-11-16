@@ -112,6 +112,58 @@ export const PROVINCES = {
             }
         ]
     },
+    'bo': {
+        id: 'bo',
+        country: 'Bolivia',
+        provinces: [
+            {
+                id: 'bo_lp',
+                province: 'La Paz'
+            },
+            {
+                id: 'bo_ch',
+                province: 'Chuquisaca'
+            },
+            {
+                id: 'bo_cc',
+                province: 'Cochabamba'
+            },
+            {
+                id: 'bo_sa',
+                province: 'Santa Cruz'
+            },
+            {
+                id: 'bo_ta',
+                province: 'Tarija'
+            }
+        ]
+    },
+    'br': {
+        id: 'br',
+        country: 'Brasil',
+        provinces: [
+            {
+                id: 'br_am',
+                province: 'Amapá'
+            },
+            {
+                id: 'br_ma',
+                province: 'Mato Grosso'
+            },
+            {
+                id: 'br_mi',
+                province: 'Minas Gerais'
+            },
+            {
+                id: 'br_ri',
+                province: 'Río de Janeiro'
+            },
+            {
+                id: 'br_sa',
+                province: 'São Paulo'
+            }
+        ]
+    },
 }
 
 export const BENEFITS = [

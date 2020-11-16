@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { MAX_LENGTH_INPUT, COUNTRIES, COUNTRY_INIT } from "../../utils/constants";
-import Button from '../Button/Button'
 import { registerUser,  getProvinces} from "../../redux/registerDucks";
 import "./registerStyles.scss";
 
