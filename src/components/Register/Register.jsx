@@ -14,7 +14,7 @@ const Register = () => {
   const countrySelect = useSelector((store) => store.register.countrySelected)
   const provinces = (typeof PROVINCES[countrySelect] !== 'undefined') ? PROVINCES[countrySelect].provinces : []
 
-  const { register, handleSubmit, watch, setValue, errors, formState } = useForm({
+  const { register, handleSubmit, watch, setValue, trigger, errors, formState } = useForm({
     mode: 'all'
   })
 
@@ -132,10 +132,11 @@ const Register = () => {
             <input
               name="password"
               type="password"
+              onChange={() => { trigger("password_repeat") }}
               ref={register({
                 required: true,
                 pattern: {
-                  value: /^[a-zA-Z0-9]+$/,
+                  value: /^[a-zA-Z]+[0-9]+$/,
                   message: 'La contraseña debe tener números y letras'
                 },
                 minLength: {
