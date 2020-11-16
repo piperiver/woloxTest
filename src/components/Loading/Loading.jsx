@@ -1,12 +1,18 @@
-import React from 'react'
+import React from "react";
+import "./loadingStyles.scss";
 
 const Loading = () => {
+  return (
+    <div id="contentLoading">
 
-    return (
-        <div id="contentLoading">
-            <h1>Cargando...</h1>
+      <div class="content">
+        <div class="loading">
+          <p>Cargando...</p>
+          <span></span>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;

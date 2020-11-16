@@ -28,7 +28,6 @@ function Routing() {
           <Header />
           <Switch>
             <Route exact path="/" component={Landing} />
-            {/* <Route exact path="/" component={Loading} /> */}
             <Route
               path="/Register"
               render={() => (!login ? <Register /> : <Redirect to="/" />)}
