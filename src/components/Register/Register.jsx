@@ -132,7 +132,7 @@ const Register = () => {
             <input
               name="password"
               type="password"
-              onChange={() => { trigger("password_repeat") }}
+              onChange={() => { trigger('password_repeat') }}
               ref={register({
                 required: true,
                 pattern: {
