@@ -7,7 +7,7 @@ import brain from '../assets/Ic_brain.svg'
 
 export const MAX_LENGTH_INPUT = 30
 export const API_BACKEND =
-  'http://private-8e8921-woloxfrontendinverview.apiary-mock.com/'
+  'https://private-8e8921-woloxfrontendinverview.apiary-mock.com/'
 
 export const COUNTRY_INIT = 'co'
 export const COUNTRIES = [
